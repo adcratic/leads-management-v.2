@@ -5,7 +5,7 @@ const Whyus = (props) => {
   return (
     <>
       <Navbar isUserL = {props.isUserIn} whyActive = {"active"}/>
-      <div>Whyus</div>  
+      <h1>About Us</h1>  
     </>
   )
 }
