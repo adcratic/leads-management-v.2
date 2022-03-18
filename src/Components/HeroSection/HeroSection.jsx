@@ -9,9 +9,8 @@ const HeroSection = (props) => {
           <div className="col-lg-5 ">
             <div className="h1">Your business deservers this.</div>
             <div className="h4 text-muted pt-5">
-              See plans, check progress, and discuss work in one place. With
-              Asana as your work manager, you’ll stay on top of everything the
-              team’s doing.
+              See and check leads in one place. With
+              LMS as your work manager, you’ll stay on top of everything, your competitors are doing.
             </div>
 
             {!props.isUserL ? (
@@ -28,11 +27,9 @@ const HeroSection = (props) => {
               </div>
             ) : (
               <div className="d-flex align-content-end pt-5 ">
-                <button type="button" class="btn btn-danger mt-3">
-                  Contact Sales
-                </button>
+                
                 <button type="button" class="btn btn-primary ms-sm-3 mt-3">
-                  Go to Dashboard
+                  {"Go to the Dashboard ->"}
                 </button>
               </div>
             )}
