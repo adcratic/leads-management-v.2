@@ -3,10 +3,10 @@ import "../HeroSection/hero-section.css";
 const HeroSection = (props) => {
   return (
     <>
-      <div className="container mt-5 pt-5 ">
-        <div className="row border pt-5">
+      <div className="container mt-5 pt-5 " style={{backgroundColor: "#47CBD8"}}>
+        <div className="row  pt-5">
          
-          <div className="col-lg-5 border">
+          <div className="col-lg-5 ">
             <div className="h1">Your business deservers this.</div>
             <div className="h4 text-muted pt-5">
               See plans, check progress, and discuss work in one place. With
