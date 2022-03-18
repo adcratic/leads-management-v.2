@@ -4,10 +4,10 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Home from '../src/pages/Home';
+import Home from './pages/Home/Home';
 
-import Whyus from "../src/Components/Why Us/Whyus"
-import Features from './Components/Features/Features';
+import Whyus from "./pages/Why Us/Whyus"
+import Features from './pages/Features/Features';
 const App = () => {
   let isuser = true;
   return (

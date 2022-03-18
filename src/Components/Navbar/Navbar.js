@@ -4,7 +4,7 @@ const Navbar = (props) => {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
-        <div class="container-fluid">
+        <div class="container">
           <Link class="navbar-brand" to="/">
             Lead Management
           </Link>
