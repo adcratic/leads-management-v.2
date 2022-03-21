@@ -49,14 +49,10 @@ const HeroSection = (props) => {
             <Cards />
           </section>
           <section id="home-check-section">
-            <div className="h1 text-center mb-5">
+            <div className="h1 text-center mb-5 " >
               How we can help you to increase your business?
             </div>
-            <div className="row">
-              <div className="col">
-              <i class="bi bi-check"></i>
-              </div>
-            </div>
+            
           </section>
         </div>
       </div>

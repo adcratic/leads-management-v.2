@@ -13,7 +13,7 @@ const Cards = () => {
                 <img className="img-fluid " src={detail.src} alt="" />
                 <div className="card shadow p-3 mb-5 bg-white rounded">
                   <h2>{detail.tittle}</h2>
-                  <p className="mt-5">{detail.parah}</p>
+                  <p className="mt-5" > {detail.parah}</p>
                 </div>
               </div>
             </div>
