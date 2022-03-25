@@ -31,22 +31,22 @@ const Footer = () => {
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <Link to="#!" className="text-reset">
+                <Link to="/" className="text-reset">
                   Home
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-reset">
+                <Link to="/features" className="text-reset">
                   Features
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-reset">
+                <Link to="/whyus" className="text-reset">
                   About Us
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-reset">
+                <Link to="/contact" className="text-reset">
                   Help
                 </Link>
               </p>
