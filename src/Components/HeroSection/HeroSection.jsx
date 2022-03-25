@@ -2,6 +2,8 @@ import React from "react";
 import "../HeroSection/hero-section.css";
 import Cards from "../Cards/Cards";
 import parallex from "../../Effects/Parallex/parallex";
+import JourneyCard from "../Cards/Journey-Card//JourneyCard";
+import Footer from "../Footer/Footer";
 
 const HeroSection = (props) => {
   return (
@@ -49,12 +51,23 @@ const HeroSection = (props) => {
             <Cards />
           </section>
           <section id="home-check-section">
-            <div className="h1 text-center mb-5 " >
-              How we can help you to increase your business?
+            <div className="h1 text-center mb-5 ">Our Journey</div>
+            <div className="row">
+              <JourneyCard />
+              
             </div>
-            
           </section>
+
+          <section id="call-to-action" className="mt-5 mb-5">
+                <div className="h2 text-center "> Manage your leads at one place</div>
+                <div className="d-flex justify-content-center">
+                <button className="btn btn-danger  mb-5 mt-5">Let's get started</button>
+                </div>
+          </section>
+
+          
         </div>
+        <Footer />
       </div>
     </>
   );

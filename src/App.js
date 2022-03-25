@@ -9,7 +9,7 @@ import Home from './pages/Home/Home';
 import Whyus from "./pages/Why Us/Whyus"
 import Features from './pages/Features/Features';
 const App = () => {
-  let isuser = false;
+  let isuser = true;
   return (
     <>
       <Router> 

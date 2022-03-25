@@ -18,6 +18,7 @@ let data = [
         parah: " We provide you the secure database to store your leads data which is end 2 end encrypted.",
         src: "/Images/4.jpg"
     }
+    
 ];
 
 export default data;
