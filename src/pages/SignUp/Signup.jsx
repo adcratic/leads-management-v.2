@@ -25,7 +25,7 @@ const Signup = () => {
                             class="form-control form-control-lg"
                           />
                           <label class="form-label" for="firstName">
-                            First Name
+                            First Name*
                           </label>
                         </div>
                       </div>
@@ -37,7 +37,7 @@ const Signup = () => {
                             class="form-control form-control-lg"
                           />
                           <label class="form-label" for="lastName">
-                            Last Name
+                            Last Name*
                           </label>
                         </div>
                       </div>
@@ -52,7 +52,7 @@ const Signup = () => {
                             class="form-control form-control-lg"
                           />
                           <label class="form-label" for="emailAddress">
-                            Email
+                            Email*
                           </label>
                         </div>
                       </div>
@@ -64,7 +64,7 @@ const Signup = () => {
                             class="form-control form-control-lg"
                           />
                           <label class="form-label" for="phoneNumber">
-                            Phone Number
+                            Phone Number*
                           </label>
                         </div>
                       </div>
@@ -79,7 +79,7 @@ const Signup = () => {
                             id="birthdayDate"
                           />
                           <label for="birthdayDate" class="form-label">
-                            DOB:
+                            DOB:*
                           </label>
                         </div>
                       </div>
@@ -91,7 +91,7 @@ const Signup = () => {
                             id="birthdayDate"
                           />
                           <label for="birthdayDate" class="form-label">
-                            Address
+                            Address*
                           </label>
                         </div>
                       </div>
@@ -107,7 +107,7 @@ const Signup = () => {
                             id="birthdayDate"
                           />
                           <label for="birthdayDate" class="form-label">
-                            Business Category 
+                            Business Category* 
                           </label>
                         </div>
                       </div>
