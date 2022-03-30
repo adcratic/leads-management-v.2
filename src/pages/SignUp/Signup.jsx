@@ -6,7 +6,6 @@ const Signup = () => {
     <>
       <section class=" ">
         <div class="container py-5 ">
-          <div className="logo h2"> Logo</div>
           <div class="row justify-content-center align-items-center h-100 mt-5">
             <div class="col-12 col-lg-9 col-xl-7 mb-5">
               <div
