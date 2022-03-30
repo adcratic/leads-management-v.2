@@ -44,7 +44,7 @@ const Navbar = (props) => {
               
             </ul>
             {!props.isUserL ? (
-                <div className=""><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Get Started </button><button type="button" class="btn btn-primary ms-sm-3">Sign Up</button></div>
+                <div className=""><Link to = "/sign-up"><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Get Started </button></Link> <Link to="/log-in"><button type="button" class="btn btn-primary ms-sm-3">Log In</button></Link> </div>
             ) : (
                 
                 <div className="d-none  d-sm-block"><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Contact Sales</button><button type="button" class="btn btn-primary ms-sm-3">Go to Dashboard</button></div>
