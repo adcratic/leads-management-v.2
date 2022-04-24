@@ -1,0 +1,13 @@
+.grid-heading{
+    padding: 20px;
+}
+
+.button-section{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-add, .button-delete{
+    border-radius: 20px !important;
+}

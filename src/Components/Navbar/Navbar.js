@@ -22,7 +22,7 @@ const Navbar = (props) => {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav m-auto">
             {props.isUserL ? <li className="nav-item ">
-                <Link className={`nav-link  	d-xxl-none	`} to="#">
+                <Link to="/dashboard" className={`nav-link  	d-xxl-none`}>
                   Go to dashboard 
                 </Link>
               </li> : " "}

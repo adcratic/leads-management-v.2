@@ -4,14 +4,16 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
 
-import Whyus from "./pages/Why Us/Whyus"
-import Features from './pages/Features/Features';
-import Login from './pages/LogIn/Login';
-import Signup from './pages/SignUp/Signup';
+import Whyus from "./pages/Whyus"
+import Features from './pages/Features';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
+
 const App = () => {
-  let isuser = false;
+  let isuser = true;
   return (
     <>
       <Router> 
@@ -22,6 +24,8 @@ const App = () => {
           <Route path = '/features' element={<Features isUserIn = {isuser}/>}/>
           <Route path = '/log-in' element={<Login/>}/>
           <Route path = '/sign-up' element={<Signup/>}/>
+          <Route path = '/dashboard' element={<Dashboard/>}/>
+
         </Routes>
       </Router>
     </>

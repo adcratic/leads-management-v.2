@@ -1,6 +1,6 @@
 import React from "react";
 import data from "./cardsData";
-import parallex from "../../Effects/Parallex/parallex";
+// import parallex from "../../Effects/Parallex/parallex";
 const Cards = () => {
   return (
     <>
