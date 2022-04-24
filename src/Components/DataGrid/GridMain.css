@@ -11,3 +11,23 @@
 .button-add, .button-delete{
     border-radius: 20px !important;
 }
+
+.grid-heading{
+    height: 80px;
+    background-color: #212529;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+}
+
+.grid-section{
+    width: 100%;
+}
+
+.dialog-text{
+    margin: 10px 15px 0px 0px !important;
+}
+
+.dialog-button{
+    margin-top: 20px;
+}

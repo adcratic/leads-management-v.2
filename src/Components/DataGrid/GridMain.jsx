@@ -4,6 +4,12 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import "./GridMain.css";
 import DashboardDialog from './DashboardDialog';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
+import Tooltip from '@mui/material/Tooltip';
+
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -42,7 +48,7 @@ const rows = [
   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
   { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
   { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 69 },
   { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
@@ -52,8 +58,9 @@ const rows = [
 const GridMain = ()=> {
 
     const [openAdd, setOpenAdd] = React.useState(false);
+    const [pageSize, setPageSize] = React.useState(5);
+
     const handleClose = () => {
-        console.log('Hola');
         setOpenAdd(false);
     }
 
@@ -61,26 +68,35 @@ const GridMain = ()=> {
   return (
     <section>
       <div className='grid-heading'>
+        <Link to="/"><IconButton color="primary" aria-label="Go to Back">
+          <ArrowBackIosNewIcon />
+        </IconButton></Link>
+
         <h2>Dashboard</h2>
       </div>
       <div className='button-section'>
-        <Button variant="outlined" className='button-add' onClick={()=>setOpenAdd(true)}><AddIcon/></Button>
-        <Button variant="outlined" className='button-delete' >Delete</Button>
+        <Button variant="outlined" className='button-add' onClick={()=>setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon/></Tooltip></Button>
+        <Button variant="outlined" className='button-delete'>Delete</Button>
       </div>
       <div className='grid-section'>
-        <div style={{ height: 400, width: '100%' }}>
+        <div style={{ width: '100%' }}>
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={pageSize}
+            pagination
+            autoHeight
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            rowsPerPageOptions={[5, 10, 20]}
             checkboxSelection
             disableSelectionOnClick
+            
           />
         </div>
       </div>
 
       <DashboardDialog onOpen={openAdd} onclose={handleClose}/>
+
     </section>
   );
 }
