@@ -8,6 +8,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+import Box from '@mui/material/Box';
+
 
 
 
@@ -28,7 +32,6 @@ const columns = [
   {
     field: 'age',
     headerName: 'Age',
-    type: 'number',
     width: 110,
     editable: true,
   },
@@ -75,8 +78,13 @@ const GridMain = ()=> {
         <h2>Dashboard</h2>
       </div>
       <div className='button-section'>
-        <Button variant="outlined" className='button-add' onClick={()=>setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon/></Tooltip></Button>
-        <Button variant="outlined" className='button-delete'>Delete</Button>
+        <Box><Button variant="outlined" className='crud-button' onClick={()=>setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon/></Tooltip></Button></Box>
+        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+          <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+          <TextField id="input-with-sx" label="Search" variant="standard" />
+        </Box>
+
+        <Box><Button variant="outlined" className='crud-button'>Delete</Button></Box>
       </div>
       <div className='grid-section'>
         <div style={{ width: '100%' }}>

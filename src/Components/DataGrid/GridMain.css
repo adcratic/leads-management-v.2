@@ -6,10 +6,14 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    height: auto;
+    width: 100%;
+    align-items: center;
 }
 
-.button-add, .button-delete{
+.crud-button{
     border-radius: 20px !important;
+    padding: 5px 15px !important;
 }
 
 .grid-heading{
