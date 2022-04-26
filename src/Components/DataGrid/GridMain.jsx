@@ -3,7 +3,6 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import "./GridMain.css";
-import DashboardDialog from './DashboardDialog';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
@@ -11,6 +10,8 @@ import Tooltip from '@mui/material/Tooltip';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
+import AddDialog from './AddDialog';
+import DeleteDialog from './DeleteDialog';
 
 
 
@@ -61,10 +62,16 @@ const rows = [
 const GridMain = ()=> {
 
     const [openAdd, setOpenAdd] = React.useState(false);
+    const [openDelete, setOpenDelete] = React.useState(false);
     const [pageSize, setPageSize] = React.useState(5);
 
     const handleClose = () => {
         setOpenAdd(false);
+        setOpenDelete(false);
+    }
+
+    const searchInput = ()=>{
+      
     }
 
 
@@ -81,10 +88,10 @@ const GridMain = ()=> {
         <Box><Button variant="outlined" className='crud-button' onClick={()=>setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon/></Tooltip></Button></Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
           <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-          <TextField id="input-with-sx" label="Search" variant="standard" />
+          <TextField id="input-with-sx" label="Search" variant="standard" onChange={(e)=>searchInput(e.target.value)} />
         </Box>
 
-        <Box><Button variant="outlined" className='crud-button'>Delete</Button></Box>
+        <Box><Button variant="outlined" className='crud-button' onClick={()=>setOpenDelete(true)}>Delete</Button></Box>
       </div>
       <div className='grid-section'>
         <div style={{ width: '100%' }}>
@@ -103,7 +110,8 @@ const GridMain = ()=> {
         </div>
       </div>
 
-      <DashboardDialog onOpen={openAdd} onclose={handleClose}/>
+      <AddDialog onOpen={openAdd} onClose={handleClose}/>
+      <DeleteDialog onOpen={openDelete} onClose={handleClose} />
 
     </section>
   );

@@ -12,10 +12,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const DashboardDialog = (props) => {
+const AddDialog = (props) => {
 
   const openAdd = props.onOpen;
-  const handleClose = props.onclose;
+  const handleClose = props.onClose;
 
   return (
     <section>
@@ -43,4 +43,4 @@ const DashboardDialog = (props) => {
   )
 }
 
-export default DashboardDialog
+export default AddDialog
