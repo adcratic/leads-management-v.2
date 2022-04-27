@@ -6,6 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import "./GridMain.css"
+import AddAxios from '../Services/AddAxios';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -16,6 +17,11 @@ const AddDialog = (props) => {
 
   const openAdd = props.onOpen;
   const handleClose = props.onClose;
+
+  const handleAdd = () => {
+    AddAxios();
+    handleClose();
+  }
 
   return (
     <section>
@@ -31,7 +37,7 @@ const AddDialog = (props) => {
             <TextField id="business-year" className="dialog-text" label="Price" variant="filled" />
 
             <div className='dialog-button'>
-              <Button className="button-main" sx={{ marginRight: "15px" }} variant="outlined" onClick={handleClose} >Add</Button>
+              <Button className="button-main" sx={{ marginRight: "15px" }} variant="outlined" onClick={handleAdd} >Add</Button>
               <Button className="button-main" variant="outlined" onClick={handleClose} >Cancel</Button>
             </div>
 

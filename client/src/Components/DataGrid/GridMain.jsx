@@ -76,7 +76,7 @@ const GridMain = ()=> {
 
 
   return (
-    <section>
+    <section> 
       <div className='grid-heading'>
         <Link to="/"><IconButton color="primary" aria-label="Go to Back">
           <ArrowBackIosNewIcon />

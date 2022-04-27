@@ -7,6 +7,7 @@ import Slide from '@mui/material/Slide';
 import DialogContentText from '@mui/material/DialogContentText';
 
 import "./GridMain.css"
+import DeleteAxios from '../Services/DeleteAxios';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -17,6 +18,11 @@ const DeleteDialog = (props) => {
 
   const openAdd = props.onOpen;
   const handleClose = props.onClose;
+
+  const handleDelete = () => {
+    DeleteAxios();
+    handleClose();
+  }
   
   let delNum = 8;
 
@@ -33,7 +39,7 @@ const DeleteDialog = (props) => {
             </DialogContentText>
 
             <div className='dialog-button'>
-              <Button className="button-main" sx={{ marginRight: "15px" }} variant="outlined" onClick={handleClose} >Delete</Button>
+              <Button className="button-main" sx={{ marginRight: "15px" }} variant="outlined" onClick={handleDelete} >Delete</Button>
               <Button className="button-main" variant="outlined" onClick={handleClose} >Cancel</Button>
             </div>
 
