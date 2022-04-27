@@ -1,0 +1,23 @@
+{
+  "name": "leads-management-v.2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adcratic/leads-management-v.2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adcratic/leads-management-v.2/issues"
+  },
+  "homepage": "https://github.com/adcratic/leads-management-v.2#readme",
+  "description": ""
+}

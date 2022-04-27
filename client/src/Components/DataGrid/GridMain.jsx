@@ -70,8 +70,8 @@ const GridMain = ()=> {
         setOpenDelete(false);
     }
 
-    const searchInput = ()=>{
-      
+    const searchInput = (e)=>{
+      console.log(e);
     }
 
 

@@ -4,6 +4,7 @@ import Cards from "../Cards/Cards";
 import parallex from "../../Effects/Parallex/parallex";
 import JourneyCard from "../Cards/Journey-Card//JourneyCard";
 import Footer from "../Footer/Footer";
+import { Link } from 'react-router-dom';
 
 const HeroSection = (props) => {
   return (
@@ -32,9 +33,11 @@ const HeroSection = (props) => {
                 </div>
               ) : (
                 <div className="d-flex align-content-end pt-5 ">
-                  <button type="button" class="btn btn-primary  mt-3">
-                    {"Go to the Dashboard ->"}
-                  </button>
+                  <Link to="/dashboard">
+                    <button type="button" class="btn btn-primary  mt-3">
+                      {"Go to Dashboard"}
+                    </button>
+                  </Link>
                 </div>
               )}
             </div>
