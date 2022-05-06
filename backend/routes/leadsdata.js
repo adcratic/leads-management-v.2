@@ -1,12 +1,14 @@
 const router = require('express').Router();
-const { requireAuth } = require('../middelware/authmiddelware');
+const { requireAuth,checkuser } = require('../middelware/authmiddelware');
 let Leadsdata = require("../models/leadsData.model");
+router.route('*').get(checkuser)
 
-
-router.route('/').get(requireAuth,(req,res)=>{
-    Leadsdata.find()
-        .then(leadsData => res.json(leadsData))
-        .catch(err => res.status(400).json("Error: "+ err));
+router.route('/').get(requireAuth, (req,res)=>{
+     Leadsdata.find()
+        .then(leadsData => res.json({leadsData}))
+        .catch(err => {
+             res.status(400).json("Error: " + err);
+        });
 })
 
 router.route('/add').post( async (req,res)=>{

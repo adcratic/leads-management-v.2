@@ -39,6 +39,7 @@ const createToken = (id) =>{
 }
 //get 
 
+
 router.route("/",).get((req, res) => {
     userRegistered.find().
         then(userData => {
@@ -63,7 +64,7 @@ router.route("/register").post(async (req, res) => {
         const users = await newRegistraion.save();
         const token = createToken(users._id);
         res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge *1000})
-        res.status(400).json({users})
+        res.status(200).json({users})
         console.log(token);
     }
     catch (err) {

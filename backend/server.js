@@ -20,6 +20,7 @@ connection.once('open', ()=>{
 
 const leadsdataRouter = require("./routes/leadsdata")
 const userRegistrationRouter = require("./routes/userregistration");
+
 app.use('/leadsData', leadsdataRouter)
 app.use("/user",userRegistrationRouter)
 app.listen(port, ()=>{
