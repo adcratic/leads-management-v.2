@@ -91,6 +91,10 @@ router.route("/login").post(async(req, res) => {
 
 })
 
+router.route('/logout').get((req,res)=>{
+    res.cookie('jwt', '', {maxAge: 1}).json("cookie deleted")
+
+})
 
 
 module.exports = router;
