@@ -1,10 +1,10 @@
-import axios from "axios";
+// import axios from "axios";
 
-const AddAxios = async () => {
-    const response = await axios.get("");
-    var result=response.data;
-    console.log(result);
-    return result;
-}
+// const AddAxios = async () => {
+//     const response = await axios.post("http://localhost:5000/user/add",{
+//         email: this.email,
+//         password: this.password
+//     });
+// }
 
-export default AddAxios
+// export default AddAxios

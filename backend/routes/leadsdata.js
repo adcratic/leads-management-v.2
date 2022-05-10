@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { requireAuth,checkuser } = require('../middelware/authmiddelware');
+// const {checkuser } = require('../middelware/authmiddelware');
 let Leadsdata = require("../models/leadsData.model");
-router.route('*').get(checkuser)
 
-router.route('/').get(requireAuth, (req,res)=>{
+
+// router.route('*').get(checkuser)
+
+router.route('/').get((req,res)=>{
      Leadsdata.find()
         .then(leadsData => res.json({leadsData}))
         .catch(err => {
@@ -15,7 +17,6 @@ router.route('/add').post( async (req,res)=>{
     const leadName = req.body.leadName;
     const mobileNumber=Number(req.body.mobileNumber)
     const email=req.body.email;
-    
     const requirenment=req.body.requirenment;
     const quickNote=req.body.quickNote;
 
