@@ -6,8 +6,7 @@ const Schema = mongoose.Schema;
 const userRegisteration = new Schema({
     email: {
         type: String, 
-        required:[true, "Please enter an email"],
-        unique: true, 
+        required:[true, "Please enter an email"], 
         lowercase: true,
         validate:[isEmail, 'Please Enter a valid email ']
     },

@@ -33,13 +33,14 @@ const checkuser = (req,res,next)=>{
             } else {
                 // console.log(decodeToken);
                 let user = await userRegistered.findById(decodeToken.id)
+                res.status(200).json({isUser: true})
                 res.locals.user= user
                 next()
             }
         })
     } else {
-        res.status(400).json({unauthorized: true})
-        res.locals.user=null;
+        res.status(400).json({isUser: false})
+        
     }
 }
 

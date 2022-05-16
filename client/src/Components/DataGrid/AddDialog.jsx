@@ -78,11 +78,19 @@ const AddDialog = (props) => {
   const handleAdd = () => {
     axios.post('http://localhost:5000/leadsData/add',leadsData)
       .then(response =>{
-        console.log(response.status);
+        console.log(response.data);
         
-      }).catch(error=>{
-        console.error(error);
+      }).catch(err=>{
+        let error = err.response.data.errors
+        if(Object.values(error).includes("Enter 10-digit number")){
+          alert(error = err.response.data.errors.mobileNumber)
+        }else if(Object.values(error).includes("enter a name")){
+          alert(error= err.response.data.errors.leadName)
+        }
+        
       })
+      window.location.reload(true);
+      handleClose();
   }
 
   return (

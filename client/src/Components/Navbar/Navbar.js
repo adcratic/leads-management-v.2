@@ -39,7 +39,7 @@ const Navbar = (props) => {
               </li>
 
             </ul>
-            {props.isUserIn ? (
+            {!props.isUserIn ? (
               <div className=""><Link to="/sign-up"><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Get Started </button></Link> <Link to="/log-in"><button type="button" class="btn btn-primary ms-sm-3">Log In</button></Link> </div>
             ) : (
 

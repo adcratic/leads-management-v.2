@@ -1,5 +1,6 @@
 const router = require("express").Router();
 let userRegistered = require("../models/userRegistration.model");
+const {checkuser } = require('../middelware/authmiddelware');
 const jwt = require("jsonwebtoken")
 const handleErrors = (err)=>{
     console.log(err.message, err.code);
@@ -92,9 +93,10 @@ router.route("/login").post(async(req, res) => {
 
 })
 
+router.route('/check-user').get(checkuser)
+
 router.route('/logout').get((req,res)=>{
     res.cookie('jwt', '', {maxAge: 1}).json("cookie deleted")
-
 })
 
 
