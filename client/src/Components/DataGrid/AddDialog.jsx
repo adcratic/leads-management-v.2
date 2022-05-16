@@ -31,7 +31,7 @@ const AddDialog = (props) => {
       if(name === "leadName"){
         return{
           leadName: value,
-          mobileNumbeer: prevValue.mobileNumber,
+          mobileNumber: prevValue.mobileNumber,
           email: prevValue.email,
           requirenment: prevValue.requirenment,
           quickNote: prevValue.quickNote
@@ -40,7 +40,7 @@ const AddDialog = (props) => {
       } else if(name === "mobileNumber"){
         return {
           leadName: prevValue.leadName,
-          mobileNumbeer: value,
+          mobileNumber: value,
           email: prevValue.email,
           requirenment: prevValue.requirenment,
           quickNote: prevValue.quickNote
@@ -48,7 +48,7 @@ const AddDialog = (props) => {
       } else if(name === "email"){
         return {
           leadName: prevValue.leadName,
-          mobileNumbeer: prevValue.mobileNumber,
+          mobileNumber: prevValue.mobileNumber,
           email: value,
           requirenment: prevValue.requirenment,
           quickNote: prevValue.quickNote
@@ -56,7 +56,7 @@ const AddDialog = (props) => {
       } else if(name === "requirenment"){
         return {
           leadName: prevValue.leadName,
-          mobileNumbeer: prevValue.mobileNumber,
+          mobileNumber: prevValue.mobileNumber,
           email: prevValue.email,
           requirenment: value,
           quickNote: prevValue.quickNote
@@ -64,7 +64,7 @@ const AddDialog = (props) => {
       } else if( name === "quickNote"){
         return {
           leadName: prevValue.leadName,
-          mobileNumbeer: prevValue.mobileNumber,
+          mobileNumber: prevValue.mobileNumber,
           email: prevValue.email,
           requirenment: prevValue.requirenment,
           quickNote: value
@@ -81,7 +81,7 @@ const AddDialog = (props) => {
         console.log(response.status);
         
       }).catch(error=>{
-        console.error("vjhvjgj");
+        console.error(error);
       })
   }
 

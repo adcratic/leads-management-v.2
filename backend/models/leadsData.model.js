@@ -3,8 +3,8 @@ const mongoose =require("mongoose");
 const Schema = mongoose.Schema;
 
 const leadsDataSchema = new Schema({
-    leadName: {type: String, required: true},
-    mobileNumber:{type: Number, unique: true},
+    leadName: {type: String, required: [true, "Please enter the leads's name!"]},
+    mobileNumber:{type: Number, required:[true, "enter the number"], minlength:[10, "Enter 10-digit number"]},
     email: {type: String},
     firstVisit:{type:Date},
     followUpDate: {type: Date},
