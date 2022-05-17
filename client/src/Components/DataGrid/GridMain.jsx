@@ -33,13 +33,13 @@ const columns = [
   },
   {
     field: 'email',
-    headerName: 'email',
+    headerName: 'Email',
     width: 300,
     editable: true,
   },
   {
     field: 'requirenemnt',
-    headerName: 'requirenemnt',
+    headerName: 'Requirement',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 250,
@@ -47,7 +47,7 @@ const columns = [
   },
   {
     field: 'quickNote',
-    headerName: 'quickNote',
+    headerName: 'Quick Note',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 300,

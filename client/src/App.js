@@ -8,10 +8,10 @@ import {
 import Home from './pages/Home';
 import Whyus from "./pages/Whyus"
 import Features from './pages/Features';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import axios from 'axios';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 const App = () => {
   const[user, setUser] = useState("")
@@ -25,7 +25,7 @@ const App = () => {
         setUser(err.response.data.isUser);
       })
   },[])
-  let isuser = user;
+  let isuser = true;
   return (
     <>
       <Router>
@@ -35,8 +35,8 @@ const App = () => {
           <Route path='/' element={<Home isUserIn={isuser} />} />
           <Route path='/why-us' element={<Whyus isUserIn={isuser} />} />
           <Route path='/features' element={<Features isUserIn={isuser} />} />
-          <Route path='/log-in' element={<Login />} />
-          <Route path='/sign-up' element={<Signup />} />
+          <Route path= '/sign-in' element={<SignIn isUserIn={isuser} />} />
+          <Route path= '/sign-up' element={<SignUp isUserIn={isuser} />} />
 
         </Routes>
       </Router>

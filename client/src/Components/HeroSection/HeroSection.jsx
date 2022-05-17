@@ -21,15 +21,20 @@ const HeroSection = (props) => {
 
               {!props.isUserL ? (
                 <div className="d-flex align-content-end  mt-5">
-                  <button
-                    type="button"
-                    class="btn border-0 border-right btn-danger mt-5"
-                  >
-                    Get Started
-                  </button>
-                  <button type="button" class="btn btn-primary ms-sm-3 mt-5">
-                    Sign Up
-                  </button>
+                  <Link to='/sign-up'>
+                    <button
+                      type="button"
+                      class="btn border-0 border-right btn-danger mt-5"
+                    >
+                      Get Started
+                    </button>
+                  </Link>
+                  <Link to='/sign-in'>
+                    <button type="button" class="btn btn-primary ms-sm-3 mt-5">
+                      Sign Up
+                    </button>
+                  </Link>
+                  
                 </div>
               ) : (
                 <div className="d-flex align-content-end pt-5 ">
