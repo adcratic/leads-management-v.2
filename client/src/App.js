@@ -15,17 +15,20 @@ import SignUp from './pages/SignUp';
 
 const App = () => {
   const[user, setUser] = useState("")
+  
   useEffect(()=>{
     axios.get('http://localhost:5000/user/check-user')
       .then(res=>{
-        setUser(res.response.data)
+        console.log(res.data.isUser);
+        setUser(res.data.isUser)
+        
       })
       .catch(err=>{
         console.log(err.response.data.isUser);
         setUser(err.response.data.isUser);
       })
-  },[])
-  let isuser = true;
+  },[user])
+  let isuser = user;
   return (
     <>
       <Router>

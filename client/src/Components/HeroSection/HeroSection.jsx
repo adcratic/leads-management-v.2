@@ -31,7 +31,7 @@ const HeroSection = (props) => {
                   </Link>
                   <Link to='/sign-in'>
                     <button type="button" class="btn btn-primary ms-sm-3 mt-5">
-                      Sign Up
+                      Sign In
                     </button>
                   </Link>
                   

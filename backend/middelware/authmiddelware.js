@@ -28,13 +28,13 @@ const checkuser = (req,res,next)=>{
         jwt.verify(token, 'net varun secret', async(err, decodeToken)=>{
             if (err) {
                 console.log(err.message);
-                res.locals.user= null;
+                
                 next()
             } else {
                 // console.log(decodeToken);
                 let user = await userRegistered.findById(decodeToken.id)
                 res.status(200).json({isUser: true})
-                res.locals.user= user
+                
                 next()
             }
         })

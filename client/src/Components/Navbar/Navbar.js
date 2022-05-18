@@ -1,6 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Navbar = (props) => {
+  const navigate = useNavigate();
+  const handleLogout = (e)=>{
+      axios.get("http://localhost:5000/user/logout")
+        .then(res=> {
+          console.log(res);
+          navigate("/")
+          window.location.reload(true)
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+  }
 
   return (
     <>
@@ -39,12 +53,38 @@ const Navbar = (props) => {
               </li>
 
             </ul>
-            {!props.isUserIn ? (
-              <div className=""><Link to="/sign-up"><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Get Started </button></Link> <Link to="/sign-in"><button type="button" class="btn btn-primary ms-sm-3">Log In</button></Link> </div>
-            ) : (
-
-              <div className="d-none  d-sm-block"><button type="button" class="btn border-0 border-right btn-outline-light ms-lg-3">Contact Sales</button> <Link to="/dashboard"><button type="button" class="btn btn-primary ms-sm-3">Go to Dashboard</button></Link></div>
-            )}
+            {!props.isUserL ? (
+                <div className="d-flex align-content-end">
+                  <Link to='/sign-up'>
+                    <button
+                      type="button"
+                      class="btn  btn-outline-secondary"
+                    >
+                      Get Started
+                    </button>
+                  </Link>
+                  <Link to='/sign-in'>
+                    <button type="button" class="btn btn-primary ms-sm-3 ">
+                      Sign In
+                    </button>
+                  </Link>
+                  
+                </div>
+              ) : (
+                <div className="d-flex align-content-end  ">
+                <Link to="/contact">
+                    <button type="button" class="btn btn-outline-secondary ">
+                    Go to Dashboard
+                    </button>
+                  </Link>
+                  <Link to="/">
+                    <button onClick={handleLogout} type="button" class="btn btn-primary  ms-sm-3">
+                      Log Out
+                    </button>
+                  </Link>
+                  
+                </div>
+              )}
           </div>
         </div>
       </nav>
