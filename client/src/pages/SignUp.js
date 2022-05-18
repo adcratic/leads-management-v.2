@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -29,13 +31,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+  
+  const [user, setUser] = React.useState({
+    email: "",
+    password: ""
+  })
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser((prevValue) => {
+      if (name === "email") {
+        return {
+          email: value,
+          password: prevValue.password,
+        };
+      } else if (name === "password") {
+        return {
+          email: prevValue.email,
+          password: value,
+        };
+      }
     });
+    
+    
+  };
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    
+    event.preventDefault();
+    axios.post("http://localhost:5000/user/register",user)
+      .then(response=>{
+        console.log(response);
+        navigate("/");
+        window.location.reload(true)
+      })
+      .catch(err=>{
+        console.log(err);
+      })
   };
 
   return (
@@ -58,29 +89,10 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
+              
               <Grid item xs={12}>
                 <TextField
+                  onChange={handleChange}
                   required
                   fullWidth
                   id="email"
@@ -91,6 +103,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  onChange={handleChange}
                   required
                   fullWidth
                   name="password"
