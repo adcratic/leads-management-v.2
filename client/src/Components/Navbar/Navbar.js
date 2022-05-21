@@ -54,7 +54,7 @@ const Navbar = (props) => {
 
             </ul>
             {!props.isUserL ? (
-                <div className="d-flex align-content-end" style={{display}}>
+                <div className="d-flex align-content-end">
                   <Link to='/sign-up'>
                     <button
                       type="button"
