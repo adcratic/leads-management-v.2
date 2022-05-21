@@ -69,6 +69,7 @@ const GridMain = (props) => {
   const [openDelete, setOpenDelete] = React.useState(false);
   const [pageSize, setPageSize] = React.useState(5);
   const [leads, setLeads] = React.useState([]);
+  const [selectionModel, setSelectionModel] = React.useState({});
   const rows = leads.map((data) => {
     return { id: data._id, leadName: data.leadName, mobileNumber: data.mobileNumber, email: data.email, requirenment: data.requirenment, quickNote: data.quickNote }
   })
@@ -81,6 +82,7 @@ const GridMain = (props) => {
 
       }).catch(err => console.log(err))
   }, [])
+
   const handleClose = () => {
     setOpenAdd(false);
     setOpenDelete(false);
@@ -127,13 +129,16 @@ const GridMain = (props) => {
             rowsPerPageOptions={[5, 10, 20]}
             checkboxSelection
             disableSelectionOnClick
-            
+            onSelectionModelChange={(ids)=>{
+              setSelectionModel(ids);
+              console.log(ids);
+            }}
           />
         </div>
       </div>
 
       <AddDialog onOpen={openAdd} onClose={handleClose} />
-      <DeleteDialog onOpen={openDelete} onClose={handleClose} />
+      <DeleteDialog onOpen={openDelete} onClose={handleClose} selectionLength={selectionModel.length} />
 
     </section>
       ):(

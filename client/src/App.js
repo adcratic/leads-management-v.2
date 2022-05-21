@@ -21,7 +21,6 @@ const App = () => {
       .then(res=>{
         console.log(res.data.isUser);
         setUser(res.data.isUser)
-        
       })
       .catch(err=>{
         console.log(err.response.data.isUser);
