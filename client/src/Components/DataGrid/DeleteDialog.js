@@ -18,7 +18,7 @@ const DeleteDialog = (props) => {
 
   const openAdd = props.onOpen;
   const handleClose = props.onClose;
-
+  
   const handleDelete = () => {
     DeleteAxios();
     handleClose();
@@ -35,7 +35,7 @@ const DeleteDialog = (props) => {
         <DialogContent>
           <form className='edit-form'>
             <DialogContentText>
-                {`Are you sure you want to delete ${delNum} item?`}
+                {`Are you sure you want to delete  item?`}
             </DialogContentText>
 
             <div className='dialog-button'>

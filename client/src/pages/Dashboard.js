@@ -1,9 +1,9 @@
 import React from 'react'
 import GridMain from '../Components/DataGrid/GridMain'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
-      <GridMain />
+      <GridMain isUserL = {props.isUserIn}/>
   )
 }
 

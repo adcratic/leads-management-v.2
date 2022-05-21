@@ -33,7 +33,7 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard isUserIn = {isuser}/>} />
           <Route path='/' element={<Home isUserIn={isuser} />} />
           <Route path='/why-us' element={<Whyus isUserIn={isuser} />} />
           <Route path='/features' element={<Features isUserIn={isuser} />} />

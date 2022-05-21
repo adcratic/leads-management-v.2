@@ -13,12 +13,13 @@ import Box from '@mui/material/Box';
 import AddDialog from './AddDialog';
 import DeleteDialog from './DeleteDialog';
 import axios from 'axios';
+import SignUp from '../../pages/SignUp';
 
 
 
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: '_id', headerName: 'ID', width: 90 },
   {
     field: 'leadName',
     headerName: 'Name',
@@ -61,14 +62,15 @@ const columns = [
 //   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
 //   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
 // }
-const GridMain = () => {
+const GridMain = (props) => {
 
   const [openAdd, setOpenAdd] = React.useState(false);
+  const [rowId, setRowId]= React.useState([]);
   const [openDelete, setOpenDelete] = React.useState(false);
   const [pageSize, setPageSize] = React.useState(5);
   const [leads, setLeads] = React.useState([]);
-  const rows = leads.map((data, index) => {
-    return { id: index, leadName: data.leadName, mobileNumber: data.mobileNumber, email: data.email, requirenment: data.requirenment, quickNote: data.quickNote }
+  const rows = leads.map((data) => {
+    return { id: data._id, leadName: data.leadName, mobileNumber: data.mobileNumber, email: data.email, requirenment: data.requirenment, quickNote: data.quickNote }
   })
 
   React.useEffect(() => {
@@ -84,17 +86,23 @@ const GridMain = () => {
     setOpenDelete(false);
   }
 
-  const searchInput = (e) => {
-    console.log(e);
+  const handleDelete = (e)=>{
+
   }
+
+ 
 
 
   return (
-    <section>
+    <>
+      {props.isUserL ? (
+        <section>
       <div className='grid-heading'>
-        <Link to="/"><IconButton color="primary" aria-label="Go to Back">
-          <ArrowBackIosNewIcon />
-        </IconButton></Link>
+        <Link to="/">
+          <IconButton color="primary" aria-label="Go to Back">
+            <ArrowBackIosNewIcon />
+          </IconButton>
+        </Link> 
 
         <h2>Dashboard</h2>
       </div>
@@ -102,7 +110,7 @@ const GridMain = () => {
         <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon /></Tooltip></Button></Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
           <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-          <TextField id="input-with-sx" label="Search" variant="standard" onChange={(e) => searchInput(e.target.value)} />
+          <TextField id="input-with-sx" label="Search" variant="standard"  />
         </Box>
 
         <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenDelete(true)}>Delete</Button></Box>
@@ -119,7 +127,7 @@ const GridMain = () => {
             rowsPerPageOptions={[5, 10, 20]}
             checkboxSelection
             disableSelectionOnClick
-
+            
           />
         </div>
       </div>
@@ -128,6 +136,10 @@ const GridMain = () => {
       <DeleteDialog onOpen={openDelete} onClose={handleClose} />
 
     </section>
+      ):(
+        <SignUp/>
+      )}
+    </>
   );
 }
 

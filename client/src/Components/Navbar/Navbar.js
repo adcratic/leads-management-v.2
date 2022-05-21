@@ -54,7 +54,7 @@ const Navbar = (props) => {
 
             </ul>
             {!props.isUserL ? (
-                <div className="d-flex align-content-end">
+                <div className="d-flex align-content-end" style={{display}}>
                   <Link to='/sign-up'>
                     <button
                       type="button"
@@ -72,13 +72,13 @@ const Navbar = (props) => {
                 </div>
               ) : (
                 <div className="d-flex align-content-end  ">
-                <Link to="/contact">
-                    <button type="button" class="btn btn-outline-secondary ">
+                <Link to="/dashboard">
+                    <button type="button" class="btn btn-outline-secondary">
                     Go to Dashboard
                     </button>
                   </Link>
                   <Link to="/">
-                    <button onClick={handleLogout} type="button" class="btn btn-primary  ms-sm-3">
+                    <button onClick={handleLogout} type="button" className="btn btn-primary  ms-sm-3" style={{color:"white"}}>
                       Log Out
                     </button>
                   </Link>
