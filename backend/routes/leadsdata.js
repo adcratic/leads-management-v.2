@@ -19,7 +19,7 @@ const handleError = (err)=>{
 
 // router.route('*').get(checkuser)
 
-router.route('/').get((req,res)=>{
+router.get("/",(req,res)=>{
      Leadsdata.find()
         .then(leadsData => res.json({leadsData}))
         .catch(err => {

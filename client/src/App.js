@@ -38,7 +38,6 @@ const App = () => {
           <Route path='/features' element={<Features isUserIn={isuser} />} />
           <Route path= '/sign-in' element={<SignIn isUserIn={isuser} />} />
           <Route path= '/sign-up' element={<SignUp isUserIn={isuser} />} />
-
         </Routes>
       </Router>
     </>

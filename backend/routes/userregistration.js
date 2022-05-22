@@ -41,7 +41,7 @@ const createToken = (id) =>{
 //get 
 
 
-router.route("/",).get((req, res) => {
+router.get("/",(req, res) => {
     userRegistered.find().
         then(userData => {
             res.json(userData)
@@ -54,7 +54,7 @@ router.route("/",).get((req, res) => {
 
 //signup
 
-router.route("/register").post(async (req, res) => {
+router.post("/register",async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     try {
@@ -77,7 +77,7 @@ router.route("/register").post(async (req, res) => {
 
 //sign in
 
-router.route("/login").post(async(req, res) => {
+router.post("/login",async(req, res) => {
     const {email,password} = req.body;
 
     try{
@@ -93,9 +93,9 @@ router.route("/login").post(async(req, res) => {
 
 })
 
-router.route('/check-user').get(checkuser)
+router.get('/check-user',checkuser)
 
-router.route('/logout').get((req,res)=>{
+router.get('/logout',(req,res)=>{
     res.cookie('jwt', '', {maxAge: 1}).json("cookie deleted")
 })
 

@@ -16,8 +16,6 @@ import axios from 'axios';
 import SignUp from '../../pages/SignUp';
 
 
-
-
 const columns = [
   { field: '_id', headerName: 'ID', width: 90 },
   {
@@ -39,7 +37,7 @@ const columns = [
     editable: true,
   },
   {
-    field: 'requirenemnt',
+    field: 'requirenment',
     headerName: 'Requirement',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
@@ -65,7 +63,6 @@ const columns = [
 const GridMain = (props) => {
 
   const [openAdd, setOpenAdd] = React.useState(false);
-  const [rowId, setRowId]= React.useState([]);
   const [openDelete, setOpenDelete] = React.useState(false);
   const [pageSize, setPageSize] = React.useState(5);
   const [leads, setLeads] = React.useState([]);
@@ -79,21 +76,14 @@ const GridMain = (props) => {
       .then(res => {
         console.log(res.data.leadsData);
         setLeads(res.data.leadsData)
-
       }).catch(err => console.log(err))
   }, [])
 
   const handleClose = () => {
     setOpenAdd(false);
     setOpenDelete(false);
-  }
-
-  const handleDelete = (e)=>{
 
   }
-
- 
-
 
   return (
     <>
@@ -130,15 +120,13 @@ const GridMain = (props) => {
             checkboxSelection
             disableSelectionOnClick
             onSelectionModelChange={(ids)=>{
-              setSelectionModel(ids);
-              console.log(ids);
+              setSelectionModel({ids})
             }}
           />
         </div>
       </div>
-
       <AddDialog onOpen={openAdd} onClose={handleClose} />
-      <DeleteDialog onOpen={openDelete} onClose={handleClose} selectionLength={selectionModel.length} />
+      <DeleteDialog data ={selectionModel} onOpen={openDelete} onClose={handleClose} selectionLength={selectionModel.length} />
 
     </section>
       ):(

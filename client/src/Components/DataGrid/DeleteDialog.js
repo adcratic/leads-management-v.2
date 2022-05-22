@@ -19,9 +19,11 @@ const DeleteDialog = (props) => {
   const openAdd = props.onOpen;
   const handleClose = props.onClose;
   let delNum = props.selectionLength;
-  
+  const data= props.data;
+
   const handleDelete = () => {
-    DeleteAxios();
+    // DeleteAxios(data);
+    console.log(data)
     handleClose();
   }
 
