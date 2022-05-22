@@ -22,8 +22,7 @@ const DeleteDialog = (props) => {
   const data= props.data;
 
   const handleDelete = () => {
-    DeleteAxios(data);
-    
+    DeleteAxios({data});
     handleClose();
   }
 

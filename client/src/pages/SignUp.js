@@ -63,7 +63,8 @@ export default function SignUp() {
         window.location.reload(true)
       })
       .catch(err=>{
-        console.log(err);
+        alert(err.response.data.errors.email);
+        window.location.reload(true)
       })
   };
 
