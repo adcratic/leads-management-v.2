@@ -50,27 +50,5 @@ router.post('/add',(req,res)=>{
 });
 
 
-router.get('/:id',(req,res) => {
-    const found= Leadsdata.some(leads => leads.id === parseInt(req.params.id))
-    if(found){
-        res.json(Leadsdata.filter(leads => leads.id === parseInt(req.params.id )))
-    } else {
-        // res.send(`404 not found`)
-        res.status(400).json({msg:`no member with the id of ${req.params.id }`});
-    }
-    
-})
-
-
-router.delete('/:id',(req,res)=>{
-    const found = Leadsdata.some(leads => leads.id === parseInt(req.params.id))
-
-    if(found){
-        res.json({msg: 'Member deleted', leads: Leadsdata.filter(leads => leads.id !== parseInt(req.params.id))});
-    } else {
-        res.status(400).json({msg: ' bad request id not found'})
-    }
-});
-
 
 module.exports = router;
