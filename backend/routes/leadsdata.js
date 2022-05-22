@@ -49,6 +49,24 @@ router.post('/add',(req,res)=>{
         })
 });
 
+router.delete('/remove-data', async (req,res)=>{
+    const data = req.query.data
+    console.log(data);
+    if(!data){
+        res.status(400).json("Delete Data not found")
+    }
 
+    await Leadsdata.deleteMany({
+        _id: data
+    })
+        .then(()=>{
+            res.status(200).json({deletedItem: "true"})
+        })
+        .catch(error =>{
+            res.status(400).json("Error!!")
+        })
+
+    
+})
 
 module.exports = router;

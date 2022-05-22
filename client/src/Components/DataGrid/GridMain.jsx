@@ -55,11 +55,6 @@ const columns = [
 ];
 
 
-
-// [
-//   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-//   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-// }
 const GridMain = (props) => {
 
   const [openAdd, setOpenAdd] = React.useState(false);
@@ -67,6 +62,8 @@ const GridMain = (props) => {
   const [pageSize, setPageSize] = React.useState(5);
   const [leads, setLeads] = React.useState([]);
   const [selectionModel, setSelectionModel] = React.useState({});
+
+
   const rows = leads.map((data) => {
     return { id: data._id, leadName: data.leadName, mobileNumber: data.mobileNumber, email: data.email, requirenment: data.requirenment, quickNote: data.quickNote }
   })
@@ -85,52 +82,68 @@ const GridMain = (props) => {
 
   }
 
+  const handleSearch = (e) => {
+    var inputData = e.target.value;
+
+    const filteredData = leads.filter((e) => {
+      return e.mobileNumber.includes(inputData);
+    })
+    if (inputData === " ") {
+      setLeads(e);
+    }
+    
+    else {
+      setLeads(filteredData)
+    }
+    console.log(filteredData);
+  }
+
   return (
     <>
       {props.isUserL ? (
         <section>
-      <div className='grid-heading'>
-        <Link to="/">
-          <IconButton color="primary" aria-label="Go to Back">
-            <ArrowBackIosNewIcon />
-          </IconButton>
-        </Link> 
+          <div className='grid-heading'>
+            <Link to="/">
+              <IconButton color="primary" aria-label="Go to Back">
+                <ArrowBackIosNewIcon />
+              </IconButton>
+            </Link>
 
-        <h2>Dashboard</h2>
-      </div>
-      <div className='button-section'>
-        <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon /></Tooltip></Button></Box>
-        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-          <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-          <TextField id="input-with-sx" label="Search" variant="standard"  />
-        </Box>
+            <h2>Dashboard</h2>
+          </div>
+          <div className='button-section'>
+            <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenAdd(true)}><Tooltip title="Add" arrow><AddIcon /></Tooltip></Button></Box>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+              <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField id="input-with-sx" label="Search" variant="standard" onChange={handleSearch} />
+            </Box>
 
-        <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenDelete(true)}>Delete</Button></Box>
-      </div>
-      <div className='grid-section'>
-        <div style={{ width: '100%' }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={pageSize}
-            pagination
-            autoHeight
-            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-            rowsPerPageOptions={[5, 10, 20]}
-            checkboxSelection
-            disableSelectionOnClick
-            onSelectionModelChange={(ids)=>{
-              setSelectionModel({ids})
-            }}
-          />
-        </div>
-      </div>
-      <AddDialog onOpen={openAdd} onClose={handleClose} />
-      <DeleteDialog data ={selectionModel} onOpen={openDelete} onClose={handleClose} selectionLength={selectionModel.length} />
+            <Box><Button variant="outlined" className='crud-button' onClick={() => setOpenDelete(true)}>Delete</Button></Box>
+          </div>
+          <div className='grid-section'>
+            <div style={{ width: '100%' }}>
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={pageSize}
+                pagination
+                autoHeight
+                onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+                rowsPerPageOptions={[5, 10, 20]}
+                checkboxSelection
+                disableSelectionOnClick
+                onSelectionModelChange={(ids) => {
+                  setSelectionModel(ids)
+                }}
+              />
+            </div>
+          </div>
+          <AddDialog onOpen={openAdd} onClose={handleClose} />
+          <DeleteDialog data={selectionModel} onOpen={openDelete} onClose={handleClose} selectionLength={selectionModel.length} />
 
-    </section>
-      ):(
-        <SignUp/>
+        </section>
+      ) : (
+        <SignUp />
       )}
     </>
   );
