@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // const {checkuser } = require('../middelware/authmiddelware');
-let Leadsdata = require("../models/leadsData.model");
+const Leadsdata = require("../models/leadsData.model");
 
 //error handeling function
 
@@ -19,7 +19,7 @@ const handleError = (err)=>{
 
 // router.route('*').get(checkuser)
 
-router.get("/",(req,res)=>{
+router.get('/',(req,res)=>{
      Leadsdata.find()
         .then(leadsData => res.json({leadsData}))
         .catch(err => {
@@ -27,9 +27,9 @@ router.get("/",(req,res)=>{
         });
 })
 
-router.route('/add').post(  (req,res)=>{
+router.post('/add',(req,res)=>{
     const leadName = req.body.leadName;
-    const mobileNumber=Number(req.body.mobileNumber)
+    const mobileNumber=parseInt(req.body.mobileNumber)
     const email=req.body.email;
     const requirenment=req.body.requirenment;
     const quickNote=req.body.quickNote;
