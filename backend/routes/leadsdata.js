@@ -29,7 +29,7 @@ router.get('/',(req,res)=>{
 
 router.post('/add',(req,res)=>{
     const leadName = req.body.leadName;
-    const mobileNumber=Number(req.body.mobileNumber)
+    const mobileNumber=parseInt(req.body.mobileNumber)
     const email=req.body.email;
     const requirenment=req.body.requirenment;
     const quickNote=req.body.quickNote;
